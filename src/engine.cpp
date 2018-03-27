@@ -8,7 +8,7 @@
 #define TIMESTEP_S 1.f / UPDATES_PER_SEC
 
 
-Engine::Engine()
+Engine::Engine() : sceneMng(this)
 {
 	window.create(sf::VideoMode(800, 600), "daSolo");
 }
@@ -30,19 +30,21 @@ void Engine::start()
 
 	while (isRunning)
 	{
+		auto scene = sceneMng.getCurrent();
+
 		auto delta_time = clock::now() - time_start;
 		time_start = clock::now();
 		acc += std::chrono::duration_cast<std::chrono::nanoseconds>(delta_time);
 
-		// free update
+		scene->update();
 		while (acc >= timestep)
 		{
 			acc -= timestep;
-			// fixed update
+			scene->fixedupdate(TIMESTEP_S);
 		}
 
 		const auto alpha = (float)acc.count() / timestep.count();
-		// render
+		scene->render(alpha);
 	}
 }
 

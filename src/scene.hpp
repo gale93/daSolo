@@ -9,9 +9,7 @@ protected:
 	class Engine *engine;
 
 	class SceneManager *sceneMng;
-	class EntityManager *entityMng;
-	class Window *window;
-	class NetManager *netMng;
+	class sf::RenderWindow* window;
 public:
 	Scene(const std::string& name);
 	~Scene();
@@ -20,8 +18,8 @@ public:
 	inline const std::string& getName() { return name; }
 
 	inline virtual void init() {}
-	inline virtual void onUpdate() {}
-	inline virtual void onFixedUpdate(const float dt) {}
-	inline virtual void onRender(const float alpha_lerp) {}
+	inline virtual void update() {}
+	inline virtual void fixedupdate(const float dt) {}
+	inline virtual void render(const float alpha_lerp) {}
 };
 

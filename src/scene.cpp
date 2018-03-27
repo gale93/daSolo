@@ -15,7 +15,6 @@ void Scene::setEngine(Engine *engine)
 {
 	this->engine = engine;
 
-	entityMng = &engine->getEntityManager();
-	sceneMng = &engine->getSceneManager();
-	netMng = &engine->getNetManager();
+	window = &engine->getWindow();
+	//sceneMng = &engine->getSceneManager();
 }
