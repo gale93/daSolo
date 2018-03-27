@@ -9,6 +9,7 @@ protected:
 	class Engine *engine;
 
 	class SceneManager *sceneMng;
+	class TextureManager* textureMng;
 	class sf::RenderWindow* window;
 public:
 	Scene(const std::string& name);

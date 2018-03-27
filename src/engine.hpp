@@ -2,6 +2,7 @@
 
 #include <SFML\Graphics\RenderWindow.hpp>
 #include "scenemanager.hpp"
+#include "texturemanager.hpp"
 
 class Engine
 {
@@ -9,6 +10,7 @@ class Engine
 
 	sf::RenderWindow window;
 	SceneManager sceneMng;
+	TextureManager textureMng;
 public:
 	Engine();
 	~Engine();
@@ -18,5 +20,6 @@ public:
 
 	inline sf::RenderWindow& getWindow() { return window; }
 	inline SceneManager& getSceneManager() { return sceneMng; }
+	inline TextureManager& getTextureManager() { return textureMng; }
 };
 
