@@ -1,4 +1,4 @@
-#include "engine.hpp"
+#include "../engine.hpp"
 #include "gamescene.hpp"
 
 GameScene::GameScene() : Scene("game")

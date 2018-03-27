@@ -7,7 +7,7 @@
 #define TIMESTEP_N 1000000000 / UPDATES_PER_SEC
 #define TIMESTEP_S 1.f / UPDATES_PER_SEC
 
-#include "gamescene.hpp"
+#include "scenes\gamescene.hpp"
 
 
 Engine::Engine() : sceneMng(this)
