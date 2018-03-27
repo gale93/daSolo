@@ -26,7 +26,7 @@ void SpawnSystem::receive(const SpawnShip &event)
 	body.body = physicsSys->getWorld()->CreateBody(&myBodyDef);
 
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(1, 1);
+	boxShape.SetAsBox(1, 0.5);
 
 	b2FixtureDef boxFixtureDef;
 	boxFixtureDef.shape = &boxShape;
