@@ -10,6 +10,7 @@
 
 Engine::Engine()
 {
+	window.create(sf::VideoMode(800, 600), "daSolo");
 }
 
 
