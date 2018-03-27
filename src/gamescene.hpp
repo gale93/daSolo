@@ -1,9 +1,11 @@
 #pragma once
 
 #include "scene.hpp"
+#include "entitymanager.hpp"
 
 class GameScene : public Scene
 {
+	EntityManager em;
 public:
 	GameScene();
 	~GameScene();

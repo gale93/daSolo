@@ -13,6 +13,7 @@ GameScene::~GameScene()
 
 void GameScene::init()
 {
+	em.init(engine);
 }
 
 void GameScene::update()
