@@ -9,6 +9,8 @@ protected:
 	class Engine* engine;
 	entt::DefaultRegistry* registry;
 	entt::UnmanagedDispatcher* eventDispatcher;
+
+	inline virtual void onInit() {}
 public:
 	BaseSystem();
 	~BaseSystem();

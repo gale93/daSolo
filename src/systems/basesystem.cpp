@@ -16,6 +16,8 @@ void BaseSystem::init(Engine * e, entt::DefaultRegistry& r, entt::UnmanagedDispa
 	 registry = &r;
 	 eventDispatcher = &d;
 	 engine = e;
+
+	 onInit();
 }
 
 
