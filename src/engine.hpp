@@ -5,6 +5,10 @@
 #include "scenemanager.hpp"
 #include "texturemanager.hpp"
 
+#define UPDATES_PER_SEC 60
+#define TIMESTEP_N 1000000000 / UPDATES_PER_SEC
+#define TIMESTEP_S 1.f / UPDATES_PER_SEC
+
 class Engine
 {
 	bool isRunning = true;
