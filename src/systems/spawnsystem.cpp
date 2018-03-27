@@ -35,9 +35,11 @@ void SpawnSystem::receive(const SpawnShip &event)
 
 	auto& textureMng = engine->getTextureManager();
 	auto entity = registry->create(
-		body,
 		Renderable{ textureMng.get("assets/placeholder.png") }
 	);
+
+	body.body->SetUserData((void *)entity);
+	registry->assign<Body>(entity, body);
 
 	if (event.controlled); // todo add AI or PlayerController components
 }
