@@ -11,6 +11,8 @@ protected:
 	class SceneManager *sceneMng;
 	class TextureManager* textureMng;
 	class sf::RenderWindow* window;
+
+	void handleDefaultEvents(class sf::Event*);
 public:
 	Scene(const std::string& name);
 	~Scene();

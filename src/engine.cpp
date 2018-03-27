@@ -7,6 +7,8 @@
 #define TIMESTEP_N 1000000000 / UPDATES_PER_SEC
 #define TIMESTEP_S 1.f / UPDATES_PER_SEC
 
+#include "gamescene.hpp"
+
 
 Engine::Engine() : sceneMng(this)
 {
@@ -22,6 +24,8 @@ void Engine::stop() { isRunning = false; }
 
 void Engine::start()
 {
+	sceneMng.addScene(std::make_unique<GameScene>());
+
 	using clock = std::chrono::high_resolution_clock;
 	constexpr std::chrono::nanoseconds timestep(TIMESTEP_N);
 
