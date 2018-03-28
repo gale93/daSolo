@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Box2D\Common\b2Math.h>
+
 #define METER_TO_PIXEL 16
 #define PIXEL_TO_METER (1.f/METER_TO_PIXEL)
 
