@@ -7,7 +7,7 @@
 #include "components\body.hpp"
 
 #define METER_TO_PIXEL 16
-#define RADIAN_TO_DEGREES 180.f/3.1415
+#define RADIAN_TO_DEGREES 180 / b2_pi
 
 RenderSystem::RenderSystem(sf::RenderWindow* window) : window(window)
 {
