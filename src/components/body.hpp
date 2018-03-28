@@ -6,4 +6,6 @@
 struct Body
 {
 	b2Body* body;
+
+	float32 speed = 15.f;
 };

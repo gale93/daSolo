@@ -26,6 +26,7 @@ b2Vec2 PlayerControlSystem::getMousePosition()
 	return b2Vec2(m.x, m.y);
 }
 
+
 void PlayerControlSystem::update(const float dt)
 {
 	handleKeyStatus();
@@ -42,9 +43,21 @@ void PlayerControlSystem::update(const float dt)
 		{
 			auto angle = body->GetAngle();
 			auto dir = b2Vec2(cos(angle), -sin(angle));
+			dir *= bodycomponent.speed;
 
 			body->ApplyLinearImpulseToCenter(dir, true);
+
+			if (body->GetLinearVelocity().Length() > bodycomponent.speed)
+			{
+				dir = body->GetLinearVelocity();
+				dir.Normalize();
+				dir *= bodycomponent.speed;
+
+				body->SetLinearVelocity(dir);
+			}
+				
 		}
+
 	});
 }
 
