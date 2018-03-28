@@ -4,6 +4,7 @@
 #include "systems\physicssystem.hpp"
 #include "systems\rendersystem.hpp"
 #include "systems\spawnsystem.hpp"
+#include "systems\playercontrolsystem.hpp"
 
 GameScene::GameScene() : Scene("game")
 {
@@ -22,6 +23,7 @@ void GameScene::init()
 	auto physicssystem = std::make_unique<PhysicsSystem>();
 	auto spawnsystem = std::make_unique<SpawnSystem>(physicssystem->getWorld());
 
+	em.addSystem(std::make_unique<PlayerControlSystem>());
 	em.addSystem(std::move(physicssystem));
 	em.addSystem(std::move(spawnsystem));
 

@@ -5,7 +5,7 @@
 
 void PlayerControlSystem::update(const float dt)
 {
-	registry->view<PlayerController, Body>().each([](auto entity, Controllable &c, Body &body) {
+	registry->view<PlayerController, Body>().each([](auto entity, PlayerController &c, Body &body) {
 	});
 }
 

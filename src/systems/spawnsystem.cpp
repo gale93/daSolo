@@ -3,8 +3,10 @@
 
 #include <Box2D\Box2D.h>
 
-#include "components\renderable.hpp"
+#include "components\aicontroller.hpp"
 #include "components\body.hpp"
+#include "components\playercontroller.hpp"
+#include "components\renderable.hpp"
 
 SpawnSystem::SpawnSystem(b2World *phyWorld) : phyWorld(phyWorld)
 {
@@ -41,5 +43,8 @@ void SpawnSystem::receive(const SpawnShip &event)
 	body.body->SetUserData((void *)entity);
 	registry->assign<Body>(entity, body);
 
-	if (event.controlled); // todo add AI or PlayerController components
+	if (event.controlled)
+		registry->assign<PlayerController>(entity);
+	else
+		registry->assign<AIController>(entity);
 }
