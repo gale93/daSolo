@@ -23,7 +23,7 @@ void GameScene::init()
 	auto physicssystem = std::make_unique<PhysicsSystem>();
 	auto spawnsystem = std::make_unique<SpawnSystem>(physicssystem->getWorld());
 
-	em.addSystem(std::make_unique<PlayerControlSystem>());
+	em.addSystem(std::make_unique<PlayerControlSystem>(&engine->getWindow()));
 	em.addSystem(std::move(physicssystem));
 	em.addSystem(std::move(spawnsystem));
 
