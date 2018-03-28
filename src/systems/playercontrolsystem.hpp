@@ -1,7 +1,7 @@
 #pragma once
 #include "basesystem.hpp"
 
-// this struct is to be moved to the relative controllers' components
+// this struct has to be moved to the relative controllers' components
 struct controls {
 	bool left, right, spin;
 };
