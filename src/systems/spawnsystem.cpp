@@ -6,7 +6,7 @@
 #include "components\renderable.hpp"
 #include "components\body.hpp"
 
-SpawnSystem::SpawnSystem(PhysicsSystem *ps) : physicsSys(ps)
+SpawnSystem::SpawnSystem(b2World *phyWorld) : phyWorld(phyWorld)
 {
 	
 }
@@ -23,7 +23,7 @@ void SpawnSystem::receive(const SpawnShip &event)
 	myBodyDef.position = event.position;
 
 	Body body;
-	body.body = physicsSys->getWorld()->CreateBody(&myBodyDef);
+	body.body = phyWorld->CreateBody(&myBodyDef);
 
 	b2PolygonShape boxShape;
 	boxShape.SetAsBox(1, 0.5);

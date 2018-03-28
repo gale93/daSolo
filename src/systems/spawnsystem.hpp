@@ -1,16 +1,16 @@
 #pragma once
 
-#include "physicssystem.hpp"
+#include "basesystem.hpp"
 
 #include "events\spawnship.hpp"
 
 class SpawnSystem : public BaseSystem
 {
-	PhysicsSystem *physicsSys;
+	class b2World *phyWorld;
 
 	void onInit() override;
 public:
-	SpawnSystem(PhysicsSystem *);
+	SpawnSystem(b2World *phyWorld);
 
 	void receive(const SpawnShip &);
 };
