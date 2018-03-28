@@ -18,6 +18,11 @@ void SpawnSystem::onInit()
 
 void SpawnSystem::receive(const SpawnShip &event)
 {
+	auto& textureMng = engine->getTextureManager();
+	auto entity = registry->create(
+		Renderable{ textureMng.get("assets/placeholder.png"), event.position }
+	);
+
 	b2BodyDef myBodyDef;
 	myBodyDef.type = b2_dynamicBody;
 	myBodyDef.position = event.position;
@@ -26,17 +31,12 @@ void SpawnSystem::receive(const SpawnShip &event)
 	body.body = phyWorld->CreateBody(&myBodyDef);
 
 	b2PolygonShape boxShape;
-	boxShape.SetAsBox(1, 0.5);
+	boxShape.SetAsBox(2, 1);
 
 	b2FixtureDef boxFixtureDef;
 	boxFixtureDef.shape = &boxShape;
 	boxFixtureDef.density = 1;
 	body.body->CreateFixture(&boxFixtureDef);
-
-	auto& textureMng = engine->getTextureManager();
-	auto entity = registry->create(
-		Renderable{ textureMng.get("assets/placeholder.png"), event.position }
-	);
 
 	body.body->SetUserData((void *)entity);
 	registry->assign<Body>(entity, body);
