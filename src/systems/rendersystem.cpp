@@ -34,6 +34,7 @@ void RenderSystem::update(const float alpha)
 		position *= METER_TO_PIXEL;
 
 		sprite.setTexture(*renderable.texture);
+		sprite.setOrigin(static_cast<sf::Vector2f>(renderable.texture->getSize()) * 0.5f);
 		sprite.setPosition(sf::Vector2f(position.x, position.y));
 		window->draw(sprite);
 	});
