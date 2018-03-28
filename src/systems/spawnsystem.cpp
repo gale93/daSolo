@@ -35,7 +35,7 @@ void SpawnSystem::receive(const SpawnShip &event)
 
 	auto& textureMng = engine->getTextureManager();
 	auto entity = registry->create(
-		Renderable{ textureMng.get("assets/placeholder.png") }
+		Renderable{ textureMng.get("assets/placeholder.png"), event.position }
 	);
 
 	body.body->SetUserData((void *)entity);
