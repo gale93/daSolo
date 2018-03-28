@@ -26,10 +26,15 @@ void RenderSystem::update(const float alpha)
 	{
 		auto& renderable = view.get<Renderable>(entity);
 		auto position = view.get<Body>(entity).body->GetPosition();
+		if (position != renderable.current_position)
+		{
+			renderable.last_position = renderable.current_position;
+			renderable.current_position = position;
+		}
 
 		sprite.setTexture(*renderable.texture);
 
-		position = lerp(alpha, renderable.last_position, position);
+		position = lerp(alpha, renderable.last_position, renderable.current_position);
 		position *= METER_TO_PIXEL;
 		sprite.setPosition(sf::Vector2f(position.x, position.y));
 	}
