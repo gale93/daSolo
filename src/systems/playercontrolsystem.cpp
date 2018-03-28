@@ -40,7 +40,10 @@ void PlayerControlSystem::update(const float dt)
 
 		if (ctrls.spin)
 		{
-			// todo spin
+			auto angle = body->GetAngle();
+			auto dir = b2Vec2(cos(angle), -sin(angle));
+
+			body->ApplyLinearImpulseToCenter(dir, true);
 		}
 	});
 }
