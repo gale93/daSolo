@@ -28,6 +28,9 @@ void GameScene::init()
 	em.addSystem(std::move(spawnsystem));
 
 	em.addRenderSystem(std::make_unique<RenderSystem>(&engine->getWindow()));
+
+	// do spawn our ship
+	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(5, 5), true);
 }
 
 void GameScene::update()

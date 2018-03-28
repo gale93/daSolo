@@ -21,21 +21,20 @@ void RenderSystem::update(const float alpha)
 
 	sf::Sprite sprite;
 
-	auto view = registry->view<Body, Renderable>();
-	for (auto entity : view)
+	registry->view<Renderable, Body>().each([&](auto entity, Renderable &renderable, Body &body)
 	{
-		auto& renderable = view.get<Renderable>(entity);
-		auto position = view.get<Body>(entity).body->GetPosition();
+		auto position = body.body->GetPosition();
 		if (position != renderable.current_position)
 		{
 			renderable.last_position = renderable.current_position;
 			renderable.current_position = position;
 		}
 
-		sprite.setTexture(*renderable.texture);
-
 		position = lerp(alpha, renderable.last_position, renderable.current_position);
 		position *= METER_TO_PIXEL;
+
+		sprite.setTexture(*renderable.texture);
 		sprite.setPosition(sf::Vector2f(position.x, position.y));
-	}
+		window->draw(sprite);
+	});
 }

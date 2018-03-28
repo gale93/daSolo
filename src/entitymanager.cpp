@@ -24,7 +24,7 @@ void EntityManager::addSystem(std::unique_ptr<BaseSystem> system)
 void EntityManager::addRenderSystem(std::unique_ptr<BaseSystem> system)
 {
 	system->init(engine, registry, eventDispatcher);
-	systems.push_back(std::move(system));
+	render_systems.push_back(std::move(system));
 }
 
 void EntityManager::onUpdate(float dt)

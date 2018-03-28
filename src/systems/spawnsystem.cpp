@@ -22,7 +22,7 @@ void SpawnSystem::receive(const SpawnShip &event)
 {
 	auto& textureMng = engine->getTextureManager();
 	auto entity = registry->create(
-		Renderable{ textureMng.get("assets/placeholder.png"), event.position }
+		Renderable{ textureMng.get("code/assets/placeholder.png"), event.position }
 	);
 
 	b2BodyDef myBodyDef;
