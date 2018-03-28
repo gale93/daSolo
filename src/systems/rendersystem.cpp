@@ -7,7 +7,7 @@
 #include "components\body.hpp"
 
 #define METER_TO_PIXEL 16
-#define RADIAN_IN_DEGREES 180.f/3.1415
+#define RADIAN_TO_DEGREES 180.f/3.1415
 
 RenderSystem::RenderSystem(sf::RenderWindow* window) : window(window)
 {
@@ -37,7 +37,7 @@ void RenderSystem::update(const float alpha)
 		sprite.setTexture(*renderable.texture);
 		sprite.setOrigin(static_cast<sf::Vector2f>(renderable.texture->getSize()) * 0.5f);
 		sprite.setPosition(sf::Vector2f(position.x, position.y));
-		sprite.setRotation(360 - (body.body->GetAngle() * RADIAN_IN_DEGREES));
+		sprite.setRotation(360 - (body.body->GetAngle() * RADIAN_TO_DEGREES));
 		window->draw(sprite);
 	});
 }
