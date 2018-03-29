@@ -2,7 +2,7 @@
 
 #include "basesystem.hpp"
 
-#include "events\spawnship.hpp"
+#include "events\spawnsoldier.hpp"
 
 class SpawnSystem : public BaseSystem
 {
@@ -10,5 +10,5 @@ class SpawnSystem : public BaseSystem
 public:
 	SpawnSystem();
 
-	void receive(const SpawnShip &);
+	void receive(const GameEvent::SpawnSoldier &);
 };

@@ -13,10 +13,10 @@ SpawnSystem::SpawnSystem()
 
 void SpawnSystem::onInit()
 {
-	eventDispatcher->connect<SpawnShip>(this);
+	eventDispatcher->connect<GameEvent::SpawnSoldier>(this);
 }
 
-void SpawnSystem::receive(const SpawnShip &event)
+void SpawnSystem::receive(const GameEvent::SpawnSoldier &event)
 {
 	auto& textureMng = engine->getTextureManager();
 	auto entity = registry->create(

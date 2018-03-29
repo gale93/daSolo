@@ -36,12 +36,12 @@ void GameScene::loadLevel()
 {
 	/* todo from file */
 
-	// do spawn our ship
-	em.getEventDispatcher()->trigger<SpawnShip>(sf::Vector2f(5, 5), true);
+	// do spawn our soldier
+	em.getEventDispatcher()->trigger<GameEvent::SpawnSoldier>(sf::Vector2f(5, 5), true);
 
-	// spawn some other ships
+	// spawn some other soldiers
 	for (unsigned short i = 0; i < 10; i++)
-		em.getEventDispatcher()->trigger<SpawnShip>(sf::Vector2f(std::rand() % 800, std::rand() % 600), false);
+		em.getEventDispatcher()->trigger<GameEvent::SpawnSoldier>(sf::Vector2f(std::rand() % 800, std::rand() % 600), false);
 }
 
 void GameScene::update()
