@@ -32,9 +32,10 @@ void PlayerControlSystem::update(const float dt)
 	registry->view<PlayerController, Body>().each([&](auto entity, PlayerController &c, Body &bodycomponent) {
 		auto body = bodycomponent.body;
 
-		// rotate player towards mouse
-		auto targetDir = b2Vec2(mousePos.x, mousePos.y) - body->GetPosition();
-		body->SetTransform(body->GetPosition(), atan2f(-targetDir.y, targetDir.x));
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			body->ApplyAngularImpulse(-0.1f, true);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+			body->ApplyAngularImpulse(0.1f, true);
 
 		if (isSpinning())
 		{
