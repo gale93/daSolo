@@ -35,7 +35,7 @@ void RenderSystem::update(const float alpha)
 
 		sprite.setTexture(*renderable.texture);
 		sprite.setOrigin(static_cast<sf::Vector2f>(renderable.texture->getSize()) * 0.5f);
-		sprite.setRotation(360 - (body.body->GetAngle() * RADIAN_TO_DEGREES));
+		sprite.setRotation(RADIAN_TO_DEGREES(body.body->GetAngle()));
 		sprite.setPosition(sf::Vector2f(position.x, position.y));
 		window->draw(sprite);
 	});
