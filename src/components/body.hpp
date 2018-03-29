@@ -9,4 +9,5 @@ struct Body
 
 	sf::Vector2f position, direction;
 	float angle = 0.f;
+	float speed = 100.f;
 };
