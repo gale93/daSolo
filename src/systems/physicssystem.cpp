@@ -10,5 +10,5 @@ PhysicsSystem::PhysicsSystem()
 
 void PhysicsSystem::update(const float dt)
 {
-	world->Step(TIMESTEP_S, 8, 3);
+	world->Step(TIMESTEP_S, 8, 4);
 }
