@@ -13,11 +13,9 @@ PlayerControlSystem::PlayerControlSystem(sf::RenderWindow* window) : window(wind
 {
 }
 
-void PlayerControlSystem::handleKeyStatus()
+bool PlayerControlSystem::isSpinning()
 {
-	// todo one day, key code configuration
-	ctrls.fire = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
-	ctrls.spin = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::W);
 }
 
 b2Vec2 PlayerControlSystem::getMousePosition()
@@ -29,7 +27,6 @@ b2Vec2 PlayerControlSystem::getMousePosition()
 
 void PlayerControlSystem::update(const float dt)
 {
-	handleKeyStatus();
 	const auto mousePos = getMousePosition();
 
 	registry->view<PlayerController, Body>().each([&](auto entity, PlayerController &c, Body &bodycomponent) {
@@ -39,7 +36,7 @@ void PlayerControlSystem::update(const float dt)
 		auto targetDir = b2Vec2(mousePos.x, mousePos.y) - body->GetPosition();
 		body->SetTransform(body->GetPosition(), atan2f(-targetDir.y, targetDir.x));
 
-		if (ctrls.spin)
+		if (isSpinning())
 		{
 			auto angle = body->GetAngle();
 			auto dir = b2Vec2(cos(angle), -sin(angle));

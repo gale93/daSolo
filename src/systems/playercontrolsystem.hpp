@@ -3,17 +3,12 @@
 #include "basesystem.hpp"
 #include <Box2D\Common\b2Math.h>
 
-// this struct has to be moved to the relative controllers' components
-struct controls {
-	bool spin, fire;
-};
 
 class PlayerControlSystem : public BaseSystem
 {
 	class sf::RenderWindow* window;
 
-	controls ctrls;
-	void handleKeyStatus();
+	bool isSpinning();
 
 	b2Vec2 getMousePosition();
 public:
