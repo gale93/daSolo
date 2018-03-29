@@ -40,8 +40,8 @@ void GameScene::loadLevel()
 	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(5, 5), true);
 
 	// spawn some other ships
-	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(10, 10), false);
-	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(5, 15), false);
+	for (unsigned short i = 0; i < 10; i++)
+		em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(std::rand() % 50, std::rand() % 50), false);
 }
 
 void GameScene::update()
