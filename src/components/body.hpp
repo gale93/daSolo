@@ -6,7 +6,7 @@
 struct Body
 {
 	Body(const sf::Vector2f& position) : position(position) {}
-	sf::Vector2f position, direction;
 
+	sf::Vector2f position, direction;
 	float angle = 0.f;
 };
