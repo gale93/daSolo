@@ -1,7 +1,8 @@
 # daSolo
 
 The project is heavily WIP.
-It will be a demo of a 2D top down shooter. Stay tuned 
+It will be a demo of a 2D top down shooter. Stay tuned <br />
+
 ![alt text](the_mighty_logo.png)
 
 
