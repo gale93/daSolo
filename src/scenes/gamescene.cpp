@@ -60,7 +60,7 @@ void GameScene::fixedupdate(const float dt)
 
 void GameScene::render(const float alpha_lerp)
 {
-	window->clear();
+	window->clear(sf::Color(83, 83, 83));
 	em.onRender(alpha_lerp);
 	window->display();
 }
