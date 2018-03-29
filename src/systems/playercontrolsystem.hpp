@@ -1,16 +1,13 @@
 #pragma once
 
 #include "basesystem.hpp"
-#include <Box2D\Common\b2Math.h>
 
 
 class PlayerControlSystem : public BaseSystem
 {
 	class sf::RenderWindow* window;
 
-	bool isSpinning();
-
-	b2Vec2 getMousePosition();
+	sf::Vector2f getMousePosition();
 public:
 	PlayerControlSystem(sf::RenderWindow* window);
 

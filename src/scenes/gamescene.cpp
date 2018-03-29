@@ -21,7 +21,7 @@ void GameScene::init()
 	em.init(engine);
 
 	auto physicssystem = std::make_unique<PhysicsSystem>();
-	auto spawnsystem = std::make_unique<SpawnSystem>(physicssystem->getWorld());
+	auto spawnsystem = std::make_unique<SpawnSystem>();
 
 	em.addSystem(std::make_unique<PlayerControlSystem>(&engine->getWindow()));
 	em.addSystem(std::move(physicssystem));
@@ -37,11 +37,11 @@ void GameScene::loadLevel()
 	/* todo from file */
 
 	// do spawn our ship
-	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(5, 5), true);
+	em.getEventDispatcher()->trigger<SpawnShip>(sf::Vector2f(5, 5), true);
 
 	// spawn some other ships
 	for (unsigned short i = 0; i < 10; i++)
-		em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(std::rand() % 50, std::rand() % 50), false);
+		em.getEventDispatcher()->trigger<SpawnShip>(sf::Vector2f(std::rand() % 800, std::rand() % 600), false);
 }
 
 void GameScene::update()

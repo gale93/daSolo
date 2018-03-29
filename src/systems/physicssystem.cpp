@@ -5,10 +5,8 @@
 
 PhysicsSystem::PhysicsSystem()
 {
-	world = std::make_unique<b2World>(b2Vec2(0,0));
 }
 
 void PhysicsSystem::update(const float dt)
 {
-	world->Step(TIMESTEP_S, 16, 6);
 }

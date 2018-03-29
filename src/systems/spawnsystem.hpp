@@ -6,11 +6,9 @@
 
 class SpawnSystem : public BaseSystem
 {
-	class b2World *phyWorld;
-
 	void onInit() override;
 public:
-	SpawnSystem(b2World *phyWorld);
+	SpawnSystem();
 
 	void receive(const SpawnShip &);
 };

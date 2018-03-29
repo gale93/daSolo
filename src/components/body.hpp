@@ -1,11 +1,12 @@
 #pragma once
 
-#include <Box2D\Dynamics\b2Body.h>
+#include <SFML\System\Vector2.hpp>
 
 
 struct Body
 {
-	b2Body* body;
+	Body(const sf::Vector2f& position) : position(position) {}
+	sf::Vector2f position, direction;
 
-	float32 speed = 4.f;
+	float angle = 0.f;
 };
