@@ -7,3 +7,4 @@
 
 
 #define RADIAN_TO_DEGREES(a) (360.f - (a * 180.f / b2_pi))
+#define DEGREES_TO_RADIAN (b2_pi / 180.f)

@@ -33,9 +33,9 @@ void PlayerControlSystem::update(const float dt)
 		auto body = bodycomponent.body;
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			body->ApplyAngularImpulse(-0.1f, true);
+			body->SetTransform(body->GetWorldCenter(), body->GetAngle() + 1.f);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			body->ApplyAngularImpulse(0.1f, true);
+			body->ApplyAngularImpulse(-0.1f, true);
 
 		if (isSpinning())
 		{
