@@ -29,8 +29,19 @@ void GameScene::init()
 
 	em.addRenderSystem(std::make_unique<RenderSystem>(&engine->getWindow()));
 
+	loadLevel();
+}
+
+void GameScene::loadLevel()
+{
+	/* todo from file */
+
 	// do spawn our ship
 	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(5, 5), true);
+
+	// spawn some other ships
+	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(10, 10), false);
+	em.getEventDispatcher()->trigger<SpawnShip>(b2Vec2(5, 15), false);
 }
 
 void GameScene::update()

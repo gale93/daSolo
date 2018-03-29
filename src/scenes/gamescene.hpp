@@ -6,6 +6,8 @@
 class GameScene : public Scene
 {
 	EntityManager em;
+
+	void loadLevel();
 public:
 	GameScene();
 	~GameScene();
