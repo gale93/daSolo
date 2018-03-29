@@ -21,7 +21,8 @@ void Scene::setEngine(Engine *engine)
 
 void Scene::handleDefaultEvents(sf::Event *event)
 {
-	if (event->type == sf::Event::Closed)
+	if (event->type == sf::Event::Closed ||
+		event->type == sf::Event::KeyPressed && event->key.code == sf::Keyboard::Escape)
 		engine->stop();
 
 	// todo handle here resizing window and black border bars for resolution
