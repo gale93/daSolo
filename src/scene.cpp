@@ -24,6 +24,8 @@ void Scene::handleDefaultEvents(sf::Event *event)
 	if (event->type == sf::Event::Closed ||
 		event->type == sf::Event::KeyPressed && event->key.code == sf::Keyboard::Escape)
 		engine->stop();
+	else if (event->type == sf::Event::Resized)
+		engine->getWindow().setView(sf::View(sf::FloatRect(0, 0, event->size.width, event->size.height)));
 
 	// todo handle here resizing window and black border bars for resolution
 }
