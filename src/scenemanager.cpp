@@ -2,6 +2,7 @@
 #include "scenemanager.hpp"
 
 
+
 SceneManager::SceneManager(Engine *engine) :engine(engine)
 {
 }

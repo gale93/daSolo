@@ -3,7 +3,7 @@
 #include <ctime>
 #include <chrono>
 
-#include "scenes\gamescene.hpp"
+#include "scenes\game.hpp"
 
 
 Engine::Engine() : sceneMng(this)
@@ -20,7 +20,7 @@ void Engine::stop() { isRunning = false; }
 
 void Engine::start()
 {
-	sceneMng.addScene(std::make_unique<GameScene>());
+	sceneMng.addScene(std::make_unique<GameScene::Game>());
 
 	using clock = std::chrono::high_resolution_clock;
 	constexpr std::chrono::nanoseconds timestep(TIMESTEP_N);

@@ -2,6 +2,7 @@
 
 #include <string>
 
+
 class Scene
 {
 	std::string name;
@@ -25,4 +26,3 @@ public:
 	inline virtual void fixedupdate(const float dt) {}
 	inline virtual void render(const float alpha_lerp) {}
 };
-
