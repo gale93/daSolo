@@ -1,24 +1,23 @@
 #include "engine.hpp"
-#include "game.hpp"
+#include "gamescene.hpp"
 
 #include "systems\physicssystem.hpp"
 #include "systems\rendersystem.hpp"
 #include "systems\spawnsystem.hpp"
 #include "systems\playercontrolsystem.hpp"
 
-using namespace GameScene;
 
-Game::Game() : Scene("game")
+GameScene::GameScene() : Scene("game")
 {
 
 }
 
 
-Game::~Game()
+GameScene::~GameScene()
 {
 }
 
-void Game::init()
+void GameScene::init()
 {
 	em.init(engine);
 
@@ -34,7 +33,7 @@ void Game::init()
 	loadLevel();
 }
 
-void Game::loadLevel()
+void GameScene::loadLevel()
 {
 	/* todo from file */
 
@@ -46,7 +45,7 @@ void Game::loadLevel()
 		em.getEventDispatcher()->trigger<GameEvent::SpawnSoldier>(sf::Vector2f(std::rand() % 800, std::rand() % 600), false);
 }
 
-void Game::update()
+void GameScene::update()
 {
 	sf::Event event;
 	while (window->pollEvent(event))
@@ -55,12 +54,12 @@ void Game::update()
 	}
 }
 
-void Game::fixedupdate(const float dt)
+void GameScene::fixedupdate(const float dt)
 {
 	em.onUpdate(dt);
 }
 
-void Game::render(const float alpha_lerp)
+void GameScene::render(const float alpha_lerp)
 {
 	window->clear(sf::Color(83, 83, 83));
 	em.onRender(alpha_lerp);
