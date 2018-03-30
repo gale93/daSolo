@@ -1,6 +1,9 @@
 #pragma once
 
-struct PlayerController
+namespace GameComponent
 {
+	struct PlayerController
+	{
 
+	};
 };

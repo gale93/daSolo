@@ -1,6 +1,9 @@
 #pragma once
 
-struct AIController
+namespace GameComponent
 {
+	struct AIController
+	{
 
+	};
 };

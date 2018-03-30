@@ -6,6 +6,7 @@
 #include "components\renderable.hpp"
 #include "components\body.hpp"
 
+using namespace GameComponent;
 
 RenderSystem::RenderSystem(sf::RenderWindow* window) : window(window)
 {

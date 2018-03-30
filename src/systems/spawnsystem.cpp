@@ -6,6 +6,8 @@
 #include "components\playercontroller.hpp"
 #include "components\renderable.hpp"
 
+using namespace GameComponent;
+
 SpawnSystem::SpawnSystem()
 {
 	

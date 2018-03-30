@@ -3,6 +3,8 @@
 #include "engine.hpp"
 #include "components\body.hpp"
 
+using namespace GameComponent;
+
 PhysicsSystem::PhysicsSystem()
 {
 }

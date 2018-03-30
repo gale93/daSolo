@@ -10,6 +10,7 @@
 
 #define RAD_TO_DEG 180.f / 3.1415f
 
+using namespace GameComponent;
 
 PlayerControlSystem::PlayerControlSystem(sf::RenderWindow* window) : window(window)
 {
