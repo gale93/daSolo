@@ -3,7 +3,7 @@
 #include <ctime>
 #include <chrono>
 
-#include "scenes
+#include "scenes\gamescene.hpp"
 
 
 Engine::Engine() : sceneMng(this)
