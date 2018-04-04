@@ -4,6 +4,7 @@
 #include "components\aicontroller.hpp"
 #include "components\body.hpp"
 #include "components\playercontroller.hpp"
+#include "components\weapon.hpp"
 #include "components\renderable.hpp"
 
 using namespace GameComponent;
@@ -23,6 +24,7 @@ void SpawnSystem::receive(const GameEvent::SpawnSoldier &event)
 	auto& textureMng = engine->getTextureManager();
 	auto entity = registry->create(
 		Body {event.position},
+		Weapon{ WEAPON_NAME::HANDGUN },
 		Renderable{ textureMng.get("code/assets/placeholder.png"), event.position }
 	);
 

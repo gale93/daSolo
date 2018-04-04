@@ -1,10 +1,11 @@
 #include "engine.hpp"
 #include "gamescene.hpp"
 
-#include "systems\physicssystem.hpp"
-#include "systems\rendersystem.hpp"
-#include "systems\spawnsystem.hpp"
-#include "systems\playercontrolsystem.hpp"
+#include "systems/physicssystem.hpp"
+#include "systems/rendersystem.hpp"
+#include "systems/spawnsystem.hpp"
+#include "systems/playercontrolsystem.hpp"
+#include "systems/weaponsystem.hpp"
 
 
 GameScene::GameScene() : Scene("game")
@@ -26,6 +27,7 @@ void GameScene::init()
 
 	em.addSystem(std::make_unique<PlayerControlSystem>(&engine->getWindow()));
 	em.addSystem(std::move(physicssystem));
+	em.addSystem(std::make_unique<WeaponSystem>());
 	em.addSystem(std::move(spawnsystem));
 
 	em.addRenderSystem(std::make_unique<RenderSystem>(&engine->getWindow()));
