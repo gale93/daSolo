@@ -3,6 +3,7 @@
 
 #include "components\playercontroller.hpp"
 #include "components\body.hpp"
+#include "components\playerstate.hpp"
 
 #include <SFML\Window\Keyboard.hpp>
 #include <SFML\Window\Mouse.hpp>
@@ -28,7 +29,7 @@ float PlayerControlSystem::getAngleToMouse(const sf::Vector2f & position) const
 	return atan2f(targetDir.y, targetDir.x) * RAD_TO_DEG;
 }
 
-sf::Vector2f PlayerControlSystem::getPlayerInputs() const
+sf::Vector2f PlayerControlSystem::getPlayerDirection() const
 {
 	sf::Vector2f dir;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))		dir.y = -1.f;
@@ -47,14 +48,23 @@ sf::Vector2f PlayerControlSystem::getPlayerInputs() const
 	return dir;
 }
 
+bool PlayerControlSystem::getPlayerAction() const
+{
+	return sf::Mouse::isButtonPressed(sf::Mouse::Left);
+}
+
 
 void PlayerControlSystem::update(const float dt)
 {
-	auto dir = getPlayerInputs();
+	auto dir = getPlayerDirection();
 
-	registry->view<PlayerController, Body>().each([&](auto entity, PlayerController &c, Body &body) {
+	registry->view<PlayerController, Body, PlayerState>().each([&](auto entity, PlayerController &c, Body &body, PlayerState& state)
+	{
 		body.direction = dir * body.speed;
 		body.angle = getAngleToMouse(body.position);
+
+		state.moving = dir != sf::Vector2f();
+		state.shooting = getPlayerAction();
 	});
 }
 

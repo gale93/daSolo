@@ -10,7 +10,8 @@ class PlayerControlSystem : public BaseSystem
 	sf::Vector2f getMousePosition() const;
 	float getAngleToMouse(const sf::Vector2f& position) const;
 
-	sf::Vector2f getPlayerInputs() const;
+	sf::Vector2f getPlayerDirection() const;
+	bool getPlayerAction() const;
 public:
 	PlayerControlSystem(sf::RenderWindow* window);
 
