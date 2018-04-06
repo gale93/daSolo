@@ -24,6 +24,7 @@ namespace GameComponent
 		float current_reload_time = 0.f;
 
 		float fire_rate;
+		float current_fire_rate = 0.f;
 
 		unsigned short damage;
 
